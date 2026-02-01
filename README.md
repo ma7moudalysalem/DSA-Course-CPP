@@ -35,16 +35,17 @@
 <tr>
 <td>
 
-| ℹ️ Detail            | 📝 Information           |
-| -------------------- | ------------------------ |
-| 📅 **Start Date**    | **February 10, 2026**    |
-| 💰 **Course Fee**    | **$150 USD** (One-time)  |
-| 🎟️ **Limited Seats** | **30 students only**     |
-| 🎥 **Format**        | Live Online (2 per week) |
-| ⏳ **Duration**      | 7 Months                 |
-| 📼 **Recordings**    | Available 48 hours       |
-| 💬 **Support**       | Private Discord          |
-| 🏆 **Certificate**   | Upon Completion          |
+| ℹ️ Detail            | 📝 Information                            |
+| -------------------- | ----------------------------------------- |
+| 📅 **Start Date**    | **February 13, 2026**                     |
+| 📅 **Schedule**      | [**View Detailed Schedule**](SCHEDULE.md) |
+| 💰 **Course Fee**    | **$150 USD** (One-time)                   |
+| 🎟️ **Limited Seats** | **30 students only**                      |
+| 🎥 **Format**        | Live Online (Mon & Fri)                   |
+| ⏳ **Duration**      | 7 Months                                  |
+| 📼 **Recordings**    | Available 48 hours                        |
+| 💬 **Support**       | Private Discord                           |
+| 🏆 **Certificate**   | Upon Completion                           |
 
 </td>
 <td>
