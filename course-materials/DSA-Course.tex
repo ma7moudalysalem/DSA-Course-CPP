@@ -3,45 +3,78 @@
 % ==================== PACKAGES ====================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[margin=1in]{geometry}
+\usepackage{mathptmx}
+\usepackage[margin=2.2cm]{geometry}
+\setlength{\headheight}{22pt}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{booktabs}
-\usepackage{longtable}
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{parskip}
 \usepackage{fontawesome5}
+\usepackage{tcolorbox}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\tcbuselibrary{skins, breakable}
 
 % ==================== COLORS ====================
-\definecolor{primary}{RGB}{0, 51, 102}
-\definecolor{accent}{RGB}{0, 102, 204}
-\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{primary}{RGB}{0, 63, 92}
+\definecolor{secondary}{RGB}{88, 80, 141}
+\definecolor{accent}{RGB}{255, 166, 0}
+\definecolor{success}{RGB}{46, 125, 50}
+\definecolor{info}{RGB}{2, 136, 209}
+\definecolor{lightbg}{RGB}{248, 249, 250}
 
 % ==================== HYPERREF ====================
 \hypersetup{
     colorlinks=true,
-    linkcolor=accent,
-    urlcolor=accent,
-    pdftitle={Data Structures \& Algorithms with C++},
+    linkcolor=primary,
+    urlcolor=info,
+    pdftitle={Data Structures and Algorithms with C++},
     pdfauthor={Mahmoud Salem}
 }
 
 % ==================== HEADER/FOOTER ====================
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\textcolor{primary}{\textbf{Data Structures \& Algorithms with C++}}}
+\fancyhead[L]{\small\textcolor{primary}{\textbf{DSA with C++}}}
 \fancyhead[R]{\small\textcolor{primary}{\textbf{Mahmoud Salem}}}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{primary}\leaders\hrule height \headrulewidth\hfill}}
 
-% ==================== TITLE FORMATTING ====================
-\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\titlerule]
-\titleformat{\subsection}{\large\bfseries\color{primary}}{}{0em}{}
-\titlespacing*{\section}{0pt}{20pt}{10pt}
+% ==================== SECTION FORMATTING ====================
+\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\color{accent}\titlerule]
+\titleformat{\subsection}{\large\bfseries\color{secondary}}{}{0em}{}
+\titlespacing*{\section}{0pt}{18pt}{8pt}
+\setcounter{secnumdepth}{0}
+
+% ==================== CUSTOM BOXES ====================
+\newtcolorbox{notebox}{
+    colback=info!8, colframe=info,
+    fonttitle=\bfseries, title={\faInfoCircle\ Note},
+    rounded corners, boxrule=0.5pt
+}
+
+\newtcolorbox{tipbox}{
+    colback=success!8, colframe=success,
+    fonttitle=\bfseries, title={\faLightbulb\ Pro Tip},
+    rounded corners, boxrule=0.5pt
+}
+
+\newtcolorbox{warningbox}{
+    colback=accent!10, colframe=accent,
+    fonttitle=\bfseries, title={\faExclamationTriangle\ Important},
+    rounded corners, boxrule=0.5pt
+}
+
+\newtcolorbox{highlightbox}{
+    colback=primary!5, colframe=primary,
+    rounded corners, boxrule=0.5pt
+}
 
 % ==================== DOCUMENT ====================
 \begin{document}
@@ -49,113 +82,139 @@
 % ==================== TITLE PAGE ====================
 \begin{titlepage}
 \centering
-\vspace*{2cm}
+\vspace*{1.5cm}
 
-{\Huge\bfseries\color{primary} Data Structures \& Algorithms\\[0.3cm] with C++ (C++17)}
+{\fontsize{28}{34}\selectfont\bfseries\color{primary} Data Structures \& Algorithms}\\[0.4cm]
+{\fontsize{28}{34}\selectfont\bfseries\color{primary} with C++ (C++17)}
 
-\vspace{1cm}
+\vspace{0.8cm}
+{\Large\color{secondary} A Complete Interview-Oriented Learning Roadmap}
 
-{\Large A Complete Interview-Oriented Learning Roadmap}
+\vspace{1.5cm}
 
-\vspace{2cm}
-
+\begin{highlightbox}
+\centering
 \begin{tabular}{rl}
-\textbf{Instructor:} & Mahmoud Salem \\[0.3cm]
-\textbf{Start Date:} & February 10, 2026 \\[0.3cm]
-\textbf{Duration:} & Approximately 7 Months \\[0.3cm]
-\textbf{Schedule:} & 2 Sessions per Week \\[0.3cm]
-\textbf{Total Sessions:} & 56 \\[0.3cm]
-\textbf{Target:} & LeetCode Top 150 Problems \\[0.3cm]
-\textbf{Price:} & \$150 USD \\
+\textbf{Instructor:} & Mahmoud Salem \\[0.2cm]
+\textbf{Start Date:} & February 10, 2026 \\[0.2cm]
+\textbf{Duration:} & 7 Months (56 Sessions) \\[0.2cm]
+\textbf{Schedule:} & 2 Sessions per Week \\[0.2cm]
+\textbf{Target:} & LeetCode Top 150 Problems \\[0.2cm]
+\textbf{Price:} & \textcolor{success}{\textbf{\$150 USD}} \\
 \end{tabular}
+\end{highlightbox}
 
-\vspace{2cm}
+\vspace{1.5cm}
 
-{\large\textit{Consistency $\bullet$ Deep Understanding $\bullet$ Confidence}}
+{\large\textit{Consistency} \textcolor{accent}{$\bullet$} \textit{Deep Understanding} \textcolor{accent}{$\bullet$} \textit{Confidence}}
 
-\vspace{2cm}
+\vspace{1.5cm}
 
 \begin{tabular}{cc}
-\faWhatsapp\ +20 101 162 0431 & \faEnvelope\ ma7moudalysalem@gmail.com \\
+\colorbox{success!20}{\color{success}\faWhatsapp\ +20 101 162 0431} & 
+\colorbox{info!20}{\color{info}\faEnvelope\ ma7moudalysalem@gmail.com}
+\end{tabular}
+
+\vspace{0.5cm}
+
+\begin{tabular}{cc}
+\faGithub\ \href{https://github.com/ma7moudalysalem}{github.com/ma7moudalysalem} &
+\faLinkedin\ \href{https://linkedin.com/in/ma7moudalysalem}{linkedin.com/in/ma7moudalysalem}
 \end{tabular}
 
 \vfill
-
 \end{titlepage}
 
-% ==================== WELCOME MESSAGE ====================
+% ==================== WELCOME ====================
 \section{Welcome Message}
 
 Welcome to the \textbf{Data Structures \& Algorithms with C++} course.
 
 This course is designed to help you move from knowing how to write code to understanding how to \textit{think algorithmically}. You will learn how to analyze problems, break them down, and build correct and efficient solutions.
 
-This is not a crash course. It is a structured, long-term journey that rewards consistency and effort.
+\begin{notebox}
+This is not a crash course. It is a \textbf{structured, long-term journey} that rewards consistency and effort. Expect to dedicate 1-2 hours daily for practice outside of sessions.
+\end{notebox}
 
 % ==================== WHAT YOU WILL GAIN ====================
 \section{What You Will Gain}
 
 By the end of this course, you will be able to:
 
-\begin{itemize}[leftmargin=1.5cm]
-    \item Solve \textbf{150+ carefully selected LeetCode problems}
-    \item Identify common algorithmic patterns
-    \item Master \textbf{recursion, trees, graphs, and dynamic programming}
-    \item Analyze \textbf{time and space complexity} confidently
-    \item Approach technical interviews with \textbf{clarity and confidence}
+\begin{itemize}[leftmargin=1.5cm, itemsep=4pt]
+    \item[\textcolor{success}{\faCheckCircle}] Solve \textbf{150+ carefully selected LeetCode problems}
+    \item[\textcolor{success}{\faCheckCircle}] Identify common algorithmic patterns instantly
+    \item[\textcolor{success}{\faCheckCircle}] Master \textbf{recursion, trees, graphs, and dynamic programming}
+    \item[\textcolor{success}{\faCheckCircle}] Analyze \textbf{time and space complexity} confidently
+    \item[\textcolor{success}{\faCheckCircle}] Approach technical interviews with \textbf{clarity and confidence}
+    \item[\textcolor{success}{\faCheckCircle}] Write clean, optimized C++ code using modern STL
 \end{itemize}
 
-% ==================== HOW THE COURSE IS STRUCTURED ====================
-\section{How the Course Is Structured}
+% ==================== METHODOLOGY ====================
+\section{Teaching Methodology}
 
-Each topic is delivered using a proven structure:
+Each topic is delivered using a proven pedagogical structure:
 
-\begin{itemize}[leftmargin=1.5cm]
-    \item \textbf{Concept Sessions} --- intuition, mental models, visuals, and core ideas
-    \item \textbf{Problem-Solving Sessions} --- live solving of interview-level problems
-    \item \textbf{Hybrid Sessions} --- explanation combined with guided practice
+\begin{itemize}[leftmargin=1.5cm, itemsep=4pt]
+    \item[\textcolor{primary}{\faBook}] \textbf{Concept Sessions} --- Intuition, mental models, visuals, and core ideas
+    \item[\textcolor{secondary}{\faCode}] \textbf{Problem-Solving Sessions} --- Live solving of interview-level problems
+    \item[\textcolor{info}{\faLaptopCode}] \textbf{Hybrid Sessions} --- Explanation combined with guided practice
+    \item[\textcolor{accent}{\faRedo}] \textbf{Review Sessions} --- Monthly consolidation and Q\&A
 \end{itemize}
 
-Special emphasis is placed on \textbf{recursion}, as it forms the foundation for trees, backtracking, and dynamic programming.
+\begin{tipbox}
+Special emphasis is placed on \textbf{recursion}, as it forms the foundation for trees, backtracking, and dynamic programming. Master recursion, and the rest becomes significantly easier.
+\end{tipbox}
 
 % ==================== STUDENT COMMITMENT ====================
 \section{Student Commitment}
 
 To benefit fully from this course, students are expected to:
 
-\begin{itemize}[leftmargin=1.5cm]
+\begin{itemize}[leftmargin=1.5cm, itemsep=3pt]
     \item Attend sessions regularly (2 sessions per week)
     \item Review session material after each class
-    \item Attempt problems independently
+    \item Attempt problems \textbf{independently} before viewing solutions
     \item Accept struggle as part of the learning process
 \end{itemize}
 
-\textit{Progress comes from consistency, not speed.}
-
-% ==================== FAQ ====================
-\section{Frequently Asked Questions (FAQ)}
-
-\textbf{Do I need strong C++ knowledge before joining?}\\
-Basic familiarity with C++ is enough. The course includes a focused C++ review tailored for problem solving.
-
-\textbf{Is this course suitable for beginners?}\\
-Yes, if you are committed. The difficulty increases gradually with continuous support.
-
-\textbf{Will we really solve all LeetCode Top 150 problems?}\\
-Yes. The course roadmap is designed to systematically cover the entire list.
-
-\textbf{What if I struggle with problems?}\\
-Struggling is expected and encouraged. It is a necessary part of building problem-solving skills.
+\begin{warningbox}
+\textbf{Progress comes from consistency, not speed.} Students who practice daily, even for short periods, outperform those who cram before sessions.
+\end{warningbox}
 
 \newpage
 
-% ==================== DETAILED ROADMAP ====================
-\section{Detailed Course Roadmap}
-
-\subsection{Month 1 --- Foundations, Arrays \& Strings (February 2026)}
+% ==================== CURRICULUM ====================
+\section{Curriculum Overview}
 
 \begin{center}
-\begin{tabular}{ccll}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|c|l|X|}
+\hline
+\rowcolor{primary!10}
+\textbf{Month} & \textbf{Topic} & \textbf{Key Concepts} \\
+\hline
+1 & Arrays \& Strings & Big-O, Two Pointers, Sliding Window, STL \\
+\rowcolor{lightbg}
+2 & Linked Lists, Stacks \& Queues & Fast/Slow Pointers, Monotonic Stack \\
+3 & Recursion \& Backtracking & Call Stack, Base Cases, Pruning \\
+\rowcolor{lightbg}
+4 & Trees \& BST & DFS, BFS, Tree Properties, BST Operations \\
+5 & Heaps, Hashing \& Sorting & Priority Queues, Hash Tables, Custom Sort \\
+\rowcolor{lightbg}
+6 & Binary Search \& Graphs & Topological Sort, Union-Find, BFS/DFS \\
+7 & Dynamic Programming & Memoization, Tabulation, Classic DP Patterns \\
+\hline
+\end{tabularx}
+\end{center}
+
+% ==================== DETAILED SCHEDULE ====================
+\section{Detailed Session Schedule}
+
+\subsection{Month 1: Foundations, Arrays \& Strings}
+
+\begin{center}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
@@ -164,22 +223,22 @@ Struggling is expected and encouraged. It is a necessary part of building proble
 3 & Concept & Array Problem Patterns & --- \\
 4 & Solve & Two Pointers & 1, 26, 27, 88 \\
 5 & Concept & Sliding Window Technique & --- \\
-6 & Solve & Sliding Window Problems & 121, 209, 643, 3 \\
+6 & Solve & Sliding Window Problems & 121, 209, 3 \\
 7 & Concept & Strings \& Character Handling & --- \\
-8 & Solve & String Problems & 125, 242, 49, 344 \\
+8 & Solve & String Problems & 125, 242, 49 \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\subsection{Month 2 --- Linked Lists, Stack \& Queue (March 2026)}
+\subsection{Month 2: Linked Lists, Stack \& Queue}
 
 \begin{center}
-\begin{tabular}{ccll}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
 9 & Concept & Singly Linked Lists & --- \\
-10 & Solve & Linked List Problems & 206, 21, 83, 141 \\
+10 & Solve & Linked List Problems & 206, 21, 141 \\
 11 & Concept & Fast \& Slow Pointer Technique & --- \\
 12 & Solve & Cycle / Middle Problems & 142, 876, 234 \\
 13 & Concept & Stack Fundamentals & --- \\
@@ -190,12 +249,14 @@ Struggling is expected and encouraged. It is a necessary part of building proble
 \end{tabular}
 \end{center}
 
-\subsection{Month 3 --- Recursion \& Backtracking (April 2026)}
+\subsection{Month 3: Recursion \& Backtracking}
 
-\textit{This month is intentionally extended to ensure deep understanding.}
+\begin{notebox}
+This month is \textbf{intentionally extended} with extra practice to ensure deep understanding. Recursion is the foundation for everything that follows.
+\end{notebox}
 
 \begin{center}
-\begin{tabular}{ccll}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
@@ -211,12 +272,10 @@ Struggling is expected and encouraged. It is a necessary part of building proble
 \end{tabular}
 \end{center}
 
-\newpage
-
-\subsection{Month 4 --- Trees \& Binary Search Trees (May 2026)}
+\subsection{Month 4: Trees \& Binary Search Trees}
 
 \begin{center}
-\begin{tabular}{ccll}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
@@ -232,10 +291,10 @@ Struggling is expected and encouraged. It is a necessary part of building proble
 \end{tabular}
 \end{center}
 
-\subsection{Month 5 --- Heap, Hashing \& Sorting (June 2026)}
+\subsection{Month 5: Heap, Hashing \& Sorting}
 
 \begin{center}
-\begin{tabular}{ccll}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
@@ -251,10 +310,10 @@ Struggling is expected and encouraged. It is a necessary part of building proble
 \end{tabular}
 \end{center}
 
-\subsection{Month 6 --- Binary Search \& Graphs (July 2026)}
+\subsection{Month 6: Binary Search \& Graphs}
 
 \begin{center}
-\begin{tabular}{ccll}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
@@ -270,61 +329,103 @@ Struggling is expected and encouraged. It is a necessary part of building proble
 \end{tabular}
 \end{center}
 
-\newpage
+\subsection{Month 7: Dynamic Programming \& Final Review}
 
-\subsection{Month 7 --- Dynamic Programming \& Final Revision (August 2026)}
+\begin{tipbox}
+DP is the culmination of everything learned. If you mastered recursion in Month 3, DP will feel like a natural extension.
+\end{tipbox}
 
 \begin{center}
-\begin{tabular}{ccll}
+\begin{tabular}{clll}
 \toprule
 \textbf{S} & \textbf{Type} & \textbf{Topic} & \textbf{LeetCode} \\
 \midrule
-49 & Concept & Dynamic Programming Introduction & --- \\
+49 & Concept & DP Introduction & --- \\
 50 & Solve & 1D Dynamic Programming & 70, 198 \\
 51 & Concept & Knapsack Pattern & --- \\
 52 & Solve & Knapsack Problems & 416 \\
 53 & Concept & LIS and LCS & --- \\
 54 & Solve & LIS / LCS Problems & 300, 1143 \\
 55 & Solve & Advanced DP Problems & 62, 377 \\
-56 & Final & Full Course Revision & Top 150 \\
+56 & Final & \textbf{Full Course Revision} & Top 150 \\
 \bottomrule
 \end{tabular}
 \end{center}
 
+\newpage
+
+% ==================== FAQ ====================
+\section{Frequently Asked Questions}
+
+\textbf{\textcolor{primary}{Do I need strong C++ knowledge before joining?}}\\
+Basic familiarity with C++ is enough. The course includes a focused C++ review in the first week.
+
+\vspace{0.4cm}
+
+\textbf{\textcolor{primary}{Is this course suitable for beginners?}}\\
+Yes, if you are committed. The difficulty increases gradually with continuous support.
+
+\vspace{0.4cm}
+
+\textbf{\textcolor{primary}{Will we solve all LeetCode Top 150 problems?}}\\
+Yes. The curriculum systematically covers the entire list plus additional practice problems.
+
+\vspace{0.4cm}
+
+\textbf{\textcolor{primary}{What if I miss a session?}}\\
+Recordings are available for 48 hours after each live session.
+
 % ==================== ENROLLMENT ====================
-\section{Enrollment}
+\section{Enrollment Information}
 
 \begin{center}
+\begin{highlightbox}
+\centering
+\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{rl}
-\textbf{Price:} & \$150 USD (One-time payment) \\[0.3cm]
-\textbf{Start Date:} & February 10, 2026 \\[0.3cm]
-\textbf{Duration:} & 7 Months \\[0.3cm]
-\textbf{Sessions:} & 56 Live Sessions \\[0.3cm]
-\textbf{Class Size:} & Maximum 30 Students \\[0.3cm]
-\textbf{Recordings:} & Available for 48 hours \\[0.3cm]
-\textbf{Certificate:} & Upon Completion \\
+\textbf{Course Fee:} & \textcolor{success}{\textbf{\$150 USD}} (one-time payment) \\
+\textbf{Start Date:} & February 10, 2026 \\
+\textbf{Duration:} & 7 Months (56 Sessions) \\
+\textbf{Class Size:} & Maximum 30 Students \\
+\textbf{Recordings:} & Available for 48 hours \\
+\textbf{Certificate:} & Issued upon completion \\
+\end{tabular}
+\end{highlightbox}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{\large Contact Information}\\[0.5cm]
+\begin{tabular}{ll}
+\faWhatsapp\ \textbf{WhatsApp:} & +20 101 162 0431 \\
+\faEnvelope\ \textbf{Email:} & \href{mailto:ma7moudalysalem@gmail.com}{ma7moudalysalem@gmail.com} \\
+\faGithub\ \textbf{GitHub:} & \href{https://github.com/ma7moudalysalem}{github.com/ma7moudalysalem} \\
+\faLinkedin\ \textbf{LinkedIn:} & \href{https://linkedin.com/in/ma7moudalysalem}{linkedin.com/in/ma7moudalysalem} \\
 \end{tabular}
 \end{center}
 
-\vspace{1cm}
+% ==================== INSTRUCTOR ====================
+\section{About the Instructor}
 
-\begin{center}
-\textbf{Contact:}\\[0.5cm]
-\faWhatsapp\ \textbf{+20 101 162 0431}\\[0.3cm]
-\faEnvelope\ \textbf{ma7moudalysalem@gmail.com}
-\end{center}
+\textbf{Mahmoud Salem} is a Software \& Data Engineer with 4+ years of experience delivering enterprise-grade solutions across MENA and international markets.
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=2pt]
+    \item[\textcolor{primary}{\faAngleRight}] .NET Core, ASP.NET, Microservices Architecture
+    \item[\textcolor{primary}{\faAngleRight}] Azure Data Factory, Synapse Analytics, Cloud Platforms
+    \item[\textcolor{primary}{\faAngleRight}] 500+ LeetCode problems solved
+    \item[\textcolor{primary}{\faAngleRight}] ITI Graduate (Web Development \& BI)
+    \item[\textcolor{primary}{\faAngleRight}] Experience with government digital transformation projects
+\end{itemize}
 
 % ==================== FINAL NOTE ====================
-\section{Final Note}
-
-\begin{quote}
-\textit{This course is designed for students who want \textbf{real improvement}, not shortcuts.}
-
-\textit{If you stay \textbf{consistent} and \textbf{trust the process}, your problem-solving skills will improve \textbf{dramatically}.}
-\end{quote}
-
-\begin{flushright}
+\vspace{1cm}
+\begin{center}
+\rule{0.6\textwidth}{0.4pt}\\[0.5cm]
+\textit{``This course is designed for students who want \textbf{real improvement}, not shortcuts.}\\[0.2cm]
+\textit{If you stay \textbf{consistent} and \textbf{trust the process},}\\
+\textit{your problem-solving skills will improve \textbf{dramatically}.''}\\[0.5cm]
 \textbf{--- Mahmoud Salem}
-\end{flushright}
+\end{center}
 
 \end{document}
